@@ -1,6 +1,6 @@
 import fbchat
 import os
-from responsetime import computeResponse
+from computeResponse import computeResponse
 import operator
 
 
