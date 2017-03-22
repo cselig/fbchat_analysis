@@ -1,11 +1,10 @@
 import fbchat
 import os
-from computeResponse import computeResponse
 import operator
-
+from computeResponse import computeResponse
 
 def main():
-	# Need to export facebook ID and password 
+	# Need to export facebook ID and password as envinronment variables
 	# Find facebook ID here: http://findmyfbid.com/
 	client = fbchat.Client(os.environ['ID'], os.environ['PASSWORD'])
 
@@ -28,7 +27,7 @@ def main():
 	sortedAtoB = sorted(timesAtoB.items(), key=operator.itemgetter(1))
 	sortedBtoA = sorted(timesBtoA.items(), key=operator.itemgetter(1))
 
-	numRank = 10
+	numRank = 10 # number of friends to display
 	print("Top " + str(numRank) + " fastest responding friends: ")
 	for i in range(0, numRank):
 		print(str(i + 1) + ") " + sortedBtoA[i][0])

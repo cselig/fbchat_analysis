@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from computeResponse import computeResponse
 
 def summarizeResults(userAtimes, userBtimes, friendName):
-	friendFirstName = friendName.split(" ")[0]
+    friendFirstName = friendName.split(" ")[0]
 	# might want to check divide by zero error if lists are empty
 	f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
 	ax1.hist(userBtimes)
@@ -17,7 +17,7 @@ def summarizeResults(userAtimes, userBtimes, friendName):
 	ax2.hist(userAtimes)
 	ax2.text(textLocation[0], textLocation[1], "Average: " + 
 		str(sum(userAtimes) / len(userAtimes)))
-	ax2.set_title("Your reponse time to " + friendFirstName)
+   ax2.set_title("Your reponse time to " + friendFirstName)
 	ax2.set_xlabel("Count")
 	plt.show()
 
