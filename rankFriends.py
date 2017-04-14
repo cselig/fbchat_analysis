@@ -3,12 +3,16 @@ import os
 import operator
 from computeResponse import computeResponse
 
+# Note!!! Add the following lines to client.py in the fbchat package at line 544
+# if not 'actions' in j['payload']:
+#    return []
+
 def main():
 	# Need to export facebook ID and password as envinronment variables
 	# Find facebook ID here: http://findmyfbid.com/
 	client = fbchat.Client(os.environ['ID'], os.environ['PASSWORD'])
 
-	friendsFile = open("friends.txt", "r")
+	friendsFile = open("mattsFriends.txt", "r")
 	# average response times 
 	timesAtoB = {}
 	timesBtoA = {}
@@ -17,10 +21,12 @@ def main():
 		friendName = split[0] + " " + split[1]
 		(userAtimes, userBtimes) = computeResponse(friendName, client)
 		print("\n" + friendName)
-		if len(userAtimes) > 100: # make sure that there's enough data
+		print(userAtimes)
+		print(userBtimes)
+		if len(userAtimes) > 50: # make sure that there's enough data
 			timesAtoB[friendName] = sum(userAtimes) / len(userAtimes)
 			print(timesAtoB[friendName])
-		if len(userBtimes) > 100:
+		if len(userBtimes) > 50:
 			timesBtoA[friendName] = sum(userBtimes) / len(userBtimes)
 			print(timesBtoA[friendName])
 

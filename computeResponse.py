@@ -1,6 +1,8 @@
 import fbchat
 import os
 
+# might want to profile time to IO and CPU bound tasks, then separate and parallelize CPU tasks
+
 def computeResponse(friendName, client):
 	friendList = client.getUsers(friendName)
 	if len(friendList) == 0:
@@ -8,7 +10,7 @@ def computeResponse(friendName, client):
 	else: 
 		friend = friendList[0]
 
-	last_messages = client.getThreadInfo(friend.uid,0,1000) 
+	last_messages = client.getThreadInfo(friend.uid,0,10000) 
 	last_messages.reverse()  # messages come in reversed order
 
 	# define IDs of userA (you) and userB (your friend)
