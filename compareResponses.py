@@ -25,7 +25,7 @@ def main():
 	# Need to export facebook ID and password 
 	# Find facebook ID here: http://findmyfbid.com/
 	client = fbchat.Client(os.environ['ID'], os.environ['PASSWORD'])
-	friendName = raw_input("Friend's name: ")
+	friendName = input("Friend's name: ")
 	(userAtimes, userBtimes) = computeResponse(friendName, client)
 	summarizeResults(userAtimes, userBtimes, friendName)
 

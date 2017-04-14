@@ -10,7 +10,7 @@ def computeResponse(friendName, client):
 	else: 
 		friend = friendList[0]
 
-	last_messages = client.getThreadInfo(friend.uid,0,10000) 
+	last_messages = client.getThreadInfo(friend.uid,1000) 
 	last_messages.reverse()  # messages come in reversed order
 
 	# define IDs of userA (you) and userB (your friend)
