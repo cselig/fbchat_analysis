@@ -1,7 +1,6 @@
 import fbchat
 import os
 
-# might want to profile time to IO and CPU bound tasks, then separate and parallelize CPU tasks
 
 def computeResponse(friendName, client):
 	friendList = client.getUsers(friendName)
