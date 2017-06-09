@@ -8,7 +8,7 @@ def main():
 	# Find facebook ID here: http://findmyfbid.com/
 	client = fbchat.Client(os.environ['ID'], os.environ['PASSWORD'])
 
-	friendsFile = open("mattsFriends.txt", "r")
+	friendsFile = open("friends.txt", "r")
 	# average response times 
 	timesAtoB = {}
 	timesBtoA = {}
